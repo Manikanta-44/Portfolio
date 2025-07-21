@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manikanta Kanagarla - Frontend Developer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #00d4aa;
+        --secondary-color: #1a1a2e;
+        --accent-color: #ffd700;
+        --dark-bg: #0f0f23;
+        --card-bg: #16213e;
+        --text-primary: #ffffff;
+        --text-secondary: #a8b2d1;
+        --border-color: #233554;
+        --gradient-1: linear-gradient(135deg, #00d4aa, #00b4d8);
+        --gradient-2: linear-gradient(135deg, #ffd700, #ff6b6b);
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--text-primary);
+        background: var(--dark-bg);
+        overflow-x: hidden;
+      }
+
+      .mono-font {
+        font-family: "JetBrains Mono", monospace;
+      }
+      .navbar-toggler {
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+        background: var(--gradient-1);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--secondary-color);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 4px;
+      }
+
+      .navbar {
+        background: rgba(15, 15, 35, 0.95) !important;
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .navbar-brand {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--primary-color) !important;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--text-secondary) !important;
+        border-radius: 8px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+        background: rgba(0, 212, 170, 0.1);
+      }
+
+      .hero {
+        background: var(--dark-bg);
+        position: relative;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero .greeting {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--primary-color);
+        animation: typewriter 2s steps(20) forwards;
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .hero h1 {
+        font-weight: 700;
+        line-height: 1.1;
+        animation: slideInUp 1s ease 0.5s both;
+      }
+
+      .hero .title {
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+        animation: slideInUp 1s ease 0.7s both;
+      }
+
+      .hero .tagline {
+        color: var(--text-secondary);
+        max-width: 600px;
+        animation: slideInUp 1s ease 0.9s both;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-neon {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 50px;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        animation: slideInUp 1s ease 1.1s both;
+      }
+
+      .btn-neon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-1);
+        transition: all 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn-neon:hover {
+        color: var(--dark-bg);
+        box-shadow: 0 0 30px rgba(0, 212, 170, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .btn-neon:hover::before {
+        left: 0;
+      }
+
+      .btn-glow {
+        background: var(--gradient-1);
+        border: none;
+        color: var(--dark-bg);
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+        animation: slideInUp 1s ease 1.1s both;
+      }
+
+      .btn-glow:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(0, 212, 170, 0.6);
+        color: var(--dark-bg);
+      }
+
+      .section-title {
+        font-weight: 700;
+        position: relative;
+      }
+
+      .section-title::before {
+        content: "<";
+        position: absolute;
+        left: -40px;
+        color: var(--primary-color);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .section-title::after {
+        content: "/>";
+        position: absolute;
+        right: -50px;
+        color: var(--primary-color);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .section-subtitle {
+        color: var(--text-secondary);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .about-section {
+        background: var(--secondary-color);
+      }
+
+      .about-img {
+        border-radius: 20px;
+        object-fit: cover;
+        border: 3px solid var(--primary-color);
+        box-shadow: 0 0 40px rgba(0, 212, 170, 0.3);
+        transition: all 0.3s ease;
+        width: 320px;
+        height: 320px;
+      }
+
+      .about-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(0, 212, 170, 0.5);
+      }
+
+      .about-content p {
+        color: var(--text-secondary);
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        border-color: var(--primary-color);
+      }
+
+      .project-number {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--primary-color);
+      }
+
+      .project-title {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .tech-badge {
+        background: rgba(0, 212, 170, 0.1);
+        color: var(--primary-color);
+        border-radius: 25px;
+        font-weight: 500;
+        border: 1px solid rgba(0, 212, 170, 0.3);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .skills-section {
+        background: var(--dark-bg);
+      }
+
+      .skill-category {
+        background: var(--card-bg);
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-category::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: all 0.3s ease;
+        transform: rotate(45deg);
+      }
+
+      .skill-category:hover::before {
+        opacity: 0.1;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        border-color: var(--primary-color);
+      }
+
+      .skill-category h5 {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .skill-category i {
+        color: var(--primary-color);
+      }
+
+      .skill-badge {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--accent-color);
+        border-radius: 20px;
+        font-weight: 500;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        font-family: "JetBrains Mono", monospace;
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-section {
+        background: var(--secondary-color);
+      }
+
+      .contact-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-2);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover::before {
+        opacity: 0.1;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        border-color: var(--primary-color);
+      }
+
+      .contact-icon {
+        color: var(--primary-color);
+      }
+
+      .contact-link {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .contact-link:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .footer {
+        background: var(--dark-bg);
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer p {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .hero .title {
+          font-size: 1.5rem;
+        }
+
+        .section-title::before,
+        .section-title::after {
+          display: none;
+        }
+
+        .about-img {
+          width: 280px;
+          height: 280px;
+        }
+      }
+
+      /* Scroll animations */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+      <div class="container">
+        <a class="navbar-brand" href="#home">&lt;MK/&gt;</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2 mx-1" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2 mx-1" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2 mx-1" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2 mx-1" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2 mx-1" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center py-5 mt-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-10">
+            <div class="hero-content">
+              <p class="greeting mono-font mb-3">Hi, my name is</p>
+              <h1 class="display-3 fw-bold mb-3">Manikanta Kanagarla</h1>
+              <p class="title display-6 fw-semibold mb-3">Frontend Developer</p>
+              <p class="tagline lead mb-5">
+                I'm a passionate frontend developer specializing in building
+                exceptional digital experiences. Currently focused on creating
+                responsive, accessible, and user-friendly web applications.
+              </p>
+              <div class="hero-buttons">
+                <a
+                  href="Manikanta_Resume.pdf"
+                  class="btn btn-glow px-4 py-3 me-3 mb-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-download me-2"></i>Download Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-4 scroll-reveal">About Me</h2>
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-center mb-4 mb-lg-0">
+            <img
+              src="/maniprofile_image.png"
+              alt="Manikanta Kanagarla"
+              class="about-img img-fluid scroll-reveal"
+            />
+          </div>
+          <div class="col-lg-8">
+            <div class="about-content scroll-reveal">
+              <p class="mb-4">
+                I'm a frontend developer with 2+ years of experience building
+                responsive, user-friendly websites and Shopify stores. I
+                specialize in turning design concepts into high-performance
+                digital experiences.
+              </p>
+              <p> <p class="mb-4">
+            My work spans various industries including e-commerce, healthcare, education, 
+            and real estate. I've successfully delivered 15+ projects for clients worldwide, 
+            focusing on clean code, performance optimization, and mobile-first approaches.
+          </p>
+</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-5 scroll-reveal">
+          My Projects
+        </h2>
+
+        <!-- Project 1 - YellowSlate -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-6">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">01.</p>
+              <h3 class="project-title">
+                YellowSlate - School Discovery Platform
+              </h3>
+              <p class="project-description">
+                Yellow Slate is the leading school search platform in India,
+                offering a comprehensive solution for parents seeking the best
+                schools for their children.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Next.js</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >TypeScript</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >React</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Node.js</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="http://yellowslate.com/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 - Hetero Bio Pharma -->
+          <div class="col-lg-6 pt-5 pt-lg-0">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">02.</p>
+              <h3 class="project-title">Hetero Bio Pharma</h3>
+              <p class="project-description">
+                Corporate website for a leading biopharmaceutical company
+                showcasing their products, research, and global presence.
+                Implemented responsive design for all devices.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML5</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >CSS3</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Bootstrap</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://www.heterobiopharma.com/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 - The Law Chambers -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">03.</p>
+              <h3 class="project-title">The Law Chambers</h3>
+              <p class="project-description">
+                Professional legal services website with attorney profiles,
+                practice areas, and client resources. Focused on creating a
+                trustworthy digital presence.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML5</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >CSS3</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Bootstrap</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://thelawchambers.in/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4 - Booster Water -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">04.</p>
+              <h3 class="project-title">Booster Water (Shopify Store)</h3>
+              <p class="project-description">
+                E-commerce platform for premium alkaline water products.
+                Customized Shopify theme with enhanced product displays and
+                checkout flow optimizations.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Shopify</span
+                >
+
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML/CSS</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://boosterwater.com/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Store
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 5 - Skippi -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">05.</p>
+              <h3 class="project-title">Skippi Ice Pops (Shopify Store)</h3>
+              <p class="project-description">
+                Vibrant e-commerce store for tropical ice pops. Implemented
+                custom product bundles, subscription options, and summer-themed
+                UI elements.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Shopify</span
+                >
+
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML/CSS</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://skippi.in/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Store
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 6 - BioAsia -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">06.</p>
+              <h3 class="project-title">BioAsia 2024 Conference</h3>
+              <p class="project-description">
+                Official website for Asia's largest life sciences and healthcare
+                forum. Features event schedules, speaker profiles, and
+                registration flows.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML5</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >CSS3</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Bootstrap</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://bioasia.in/2024/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 7 - Evolut Wellness -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">07.</p>
+              <h3 class="project-title">Evolut Wellness</h3>
+              <p class="project-description">
+                Modern fitness center website with class schedules, trainer
+                profiles, and membership options. Designed for high conversion
+                rates.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML5</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >CSS3</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Bootstrap</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://evolutwellness.com/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 8 - Vantage Developers -->
+          <div class="col-lg-6 pt-5">
+            <div class="project-card p-4 scroll-reveal">
+              <p class="project-number">08.</p>
+              <h3 class="project-title">Vantage Developers</h3>
+              <p class="project-description">
+                Real estate landing page showcasing luxury properties with
+                interactive galleries and contact forms. Optimized for lead
+                generation.
+              </p>
+              <div class="tech-stack mb-4">
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >HTML5</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >CSS3</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >Bootstrap</span
+                >
+                <span class="tech-badge d-inline-block px-3 py-2 me-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://vantagedevelopers.com/"
+                  class="btn btn-light btn-sm px-3 py-2"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt me-1"></i>Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-4 scroll-reveal">Skills & Technologies</h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="skill-category p-4 text-center scroll-reveal">
+              <i class="fas fa-code mb-4" style="font-size: 3rem;"></i>
+              <h5 class="mb-4">Languages</h5>
+              <div class="skills-list">
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">JavaScript</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">TypeScript</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">HTML5</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">CSS3</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="skill-category p-4 text-center scroll-reveal">
+              <i class="fab fa-react mb-4" style="font-size: 3rem;"></i>
+              <h5 class="mb-4">Frameworks</h5>
+              <div class="skills-list">
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">React</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Next.js</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Bootstrap</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Tailwind</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="skill-category p-4 text-center scroll-reveal">
+              <i class="fas fa-tools mb-4" style="font-size: 3rem;"></i>
+              <h5 class="mb-4">Tools</h5>
+              <div class="skills-list">
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Git</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Bit Bucket</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">VS Code</span>
+                <span class="skill-badge d-inline-block px-3 py-2 m-1">Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-5 scroll-reveal">
+          Get In Touch
+        </h2>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="contact-card p-4 text-center scroll-reveal">
+              <i
+                class="fas fa-envelope contact-icon mb-4"
+                style="font-size: 3.5rem"
+              ></i>
+              <h5 class="mb-3">Send Email</h5>
+              <a
+                href="mailto:manikangarla48@gmail.com"
+                class="contact-link position-relative z-3"
+              >
+                manikangarla48@gmail.com
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="contact-card p-4 text-center scroll-reveal">
+              <i
+                class="fab fa-linkedin contact-icon mb-4"
+                style="font-size: 3.5rem"
+              ></i>
+              <h5 class="mb-3">LinkedIn</h5>
+              <a
+                href="https://www.linkedin.com/in/manikanta-kanagarla-771451342/"
+                class="contact-link position-relative z-3"
+                target="_blank"
+              >
+                /in/manikanta-kanagarla
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="contact-card p-4 text-center scroll-reveal">
+              <i
+                class="fas fa-phone contact-icon mb-4"
+                style="font-size: 3.5rem"
+              ></i>
+
+              <h5 class="mb-3">Phone Number</h5>
+              <a
+                href="tel:9030316033"
+                class="contact-link position-relative z-3"
+              >
+                9030316033
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 text-center">
+      <div class="container">
+        <p class="mb-0">
+          &copy; 2025 Manikanta Kanagarla. Designed & Built with ❤️
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Scroll reveal animation
+      const scrollRevealElements = document.querySelectorAll(".scroll-reveal");
+
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+          elementTop <=
+          (window.innerHeight || document.documentElement.clientHeight) /
+            dividend
+        );
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add("revealed");
+      };
+
+      const hideScrollElement = (element) => {
+        element.classList.remove("revealed");
+      };
+
+      const handleScrollAnimation = () => {
+        scrollRevealElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+      });
+
+      // Initial check
+      handleScrollAnimation();
+
+      // Active nav link highlighting
+      window.addEventListener("scroll", function () {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
